@@ -1,0 +1,225 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhapu3dj7hqmy"]
+
+[ext_resource type="Script" path="res://testing_release_script.gd" id="1_akevo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7t8fy"]
+bg_color = Color(0, 0, 0, 0.298039)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("output", "output2")]
+script = ExtResource("1_akevo")
+output = NodePath("TabBar/default rng/VBoxContainer/ScrollContainer/default_rng_output")
+output2 = NodePath("TabBar/pseudo rng/VBoxContainer/ScrollContainer/pseudo_rng_output")
+
+[node name="TabBar" type="TabContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0.364706)
+offset_right = 613.0
+offset_bottom = 62.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+current_tab = 1
+
+[node name="default rng" type="HBoxContainer" parent="TabBar"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="default_rng" type="VBoxContainer" parent="TabBar/default rng"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/default rng/default_rng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/default rng/default_rng/HBoxContainer"]
+layout_mode = 2
+text = "Amount to test"
+
+[node name="N_amount" type="SpinBox" parent="TabBar/default rng/default_rng/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1e+06
+value = 10000.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabBar/default rng/default_rng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/default rng/default_rng/HBoxContainer2"]
+layout_mode = 2
+text = "Base Chance"
+
+[node name="base_chance" type="SpinBox" parent="TabBar/default rng/default_rng/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.01
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabBar/default rng/default_rng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/default rng/default_rng/HBoxContainer3"]
+layout_mode = 2
+text = "adj_up (unused)"
+
+[node name="adj_up" type="SpinBox" parent="TabBar/default rng/default_rng/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 100000.0
+editable = false
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabBar/default rng/default_rng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/default rng/default_rng/HBoxContainer4"]
+layout_mode = 2
+text = "adj_down (unused)"
+
+[node name="adj_down" type="SpinBox" parent="TabBar/default rng/default_rng/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 100000.0
+editable = false
+
+[node name="test_default" type="Button" parent="TabBar/default rng/default_rng"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/default rng"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/default rng/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_1_hit" type="Button" parent="TabBar/default rng/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hit the enemy once (roll for crit)"
+
+[node name="crit_result_label_1" type="Label" parent="TabBar/default rng/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Last hit: No crit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabBar/default rng/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="default_rng_output" type="RichTextLabel" parent="TabBar/default rng/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_7t8fy")
+text = "Output:"
+fit_content = true
+
+[node name="pseudo rng" type="HBoxContainer" parent="TabBar"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="pseudorng" type="VBoxContainer" parent="TabBar/pseudo rng"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/pseudo rng/pseudorng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/pseudo rng/pseudorng/HBoxContainer"]
+layout_mode = 2
+text = "Amount to test"
+
+[node name="N_amount_2" type="SpinBox" parent="TabBar/pseudo rng/pseudorng/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1e+06
+value = 10000.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabBar/pseudo rng/pseudorng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/pseudo rng/pseudorng/HBoxContainer2"]
+layout_mode = 2
+text = "Base Chance"
+
+[node name="base_chance_2" type="SpinBox" parent="TabBar/pseudo rng/pseudorng/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+step = 0.01
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="TabBar/pseudo rng/pseudorng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/pseudo rng/pseudorng/HBoxContainer3"]
+layout_mode = 2
+text = "adj_up (unused)"
+
+[node name="adj_up_2" type="SpinBox" parent="TabBar/pseudo rng/pseudorng/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+max_value = 100000.0
+editable = false
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="TabBar/pseudo rng/pseudorng"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabBar/pseudo rng/pseudorng/HBoxContainer4"]
+layout_mode = 2
+text = "adj_down (unused)"
+
+[node name="adj_down" type="SpinBox" parent="TabBar/pseudo rng/pseudorng/HBoxContainer4"]
+layout_mode = 2
+max_value = 100000.0
+editable = false
+
+[node name="test_2_chance" type="Button" parent="TabBar/pseudo rng/pseudorng"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Set chance"
+
+[node name="test_2_output" type="Button" parent="TabBar/pseudo rng/pseudorng"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test output"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabBar/pseudo rng"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabBar/pseudo rng/VBoxContainer"]
+layout_mode = 2
+
+[node name="test_2_hit" type="Button" parent="TabBar/pseudo rng/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hit the enemy once (roll for crit)"
+
+[node name="crit result label" type="Label" parent="TabBar/pseudo rng/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Last hit: No crit"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabBar/pseudo rng/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="pseudo_rng_output" type="RichTextLabel" parent="TabBar/pseudo rng/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_7t8fy")
+text = "Output:"
+fit_content = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(308, 119)
+
+[connection signal="pressed" from="TabBar/default rng/default_rng/test_default" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="TabBar/default rng/VBoxContainer/HBoxContainer/test_1_hit" to="." method="_on_test_1_hit_pressed"]
+[connection signal="pressed" from="TabBar/pseudo rng/pseudorng/test_2_chance" to="." method="_on_test_2_chance_pressed"]
+[connection signal="pressed" from="TabBar/pseudo rng/pseudorng/test_2_output" to="." method="_on_test_2_output_pressed"]
+[connection signal="pressed" from="TabBar/pseudo rng/VBoxContainer/HBoxContainer/test_2_hit" to="." method="_on_test_2_hit_pressed"]
