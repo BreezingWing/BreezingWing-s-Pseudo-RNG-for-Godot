@@ -12,7 +12,7 @@ func _ready():
 	pass
 	#self.add_child(test_rng2)
 	#test_rng2.use_timer(2.0)
-	test_rng2.direct_initialize(9150, true)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Unused.
