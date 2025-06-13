@@ -36,7 +36,7 @@ just initalize the instance again.
  `Instance_name_here.use_timer(time_in_seconds)`and `Instance_name_here.disable_timer()`(reminder that you will get errors if the instance isn't added to the scene tree as a node) 
 #### Initialize() is slow / crashed my project!
 My condolences. during testing, running it about 10k times in one frame cause a lag spike lasting ~10 seconds. If you really need that many instances, it is advised to spread out the load and not spawn them in all at once. Use Threads or something.
-#### But really Initialize is slow what do i do?
+#### But really, Initialize is slow, what do i do?
 Use `instance_name_here.direct_initialize(Chance_constant, is_reverse)` instead.  
 Here's a how to:
 1) create a single instance of pseudo RNG, and initalize it as usual with the other method.
@@ -45,7 +45,7 @@ Here's a how to:
 4) Change the instance to use `direct_initialize` using the values you got. Now you can create thousands of those guilt free. I guess.  
 Note: Obviously, those values change for different chance values. read the "how it works" paragraph if you want to understand what's going on better.
 #### i forgot?
-You can access documentation for this class by pressing F1 in the Godot editor and searching for "pseudo_rng" (unless you didn't copy pseudo_rng_class.gd into your project yet, in which case, you cant)
+You can access documentation for this class by pressing F1 in the Godot editor and searching for "pseudo_rng" (unless you didn't copy pseudo_rng_class.gd into your project yet, in which case, you can't)
 
 # How to use the example project
 You have two options:
@@ -69,8 +69,8 @@ And for "loss streaks", they also appear less often, as the more times the abili
 Despite messing with the underlying RNG chance so much, the Expected Value over an arbitrary amount of tests still adds up to 25%. As in, out of theoretical 100 (1 million) hits, ~25 (250k) would stun the enemy. As such, its just a matter of finding the underlying RNG constant for a given percieved chance.
 
 ### So how do you get those numbers?
-With great difficulty. Please consult [this link](https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution "Gaming Stack Exchange")   
-Even I Dont really understand it as well as i Should, but the Python solution made by **QuantStats** worked pretty well out of the box for calculating the P (probability) from a given C (RNG constant),  
+With great difficulty. Please consult [this link.](https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution "Gaming Stack Exchange")   
+Even I Dont really understand it as well as I Should, but the Python solution made by **QuantStats** worked pretty well out of the box for calculating the P (probability) from a given C (RNG constant),  
 and as other solutions also seemed potentially inefficient, I chose to give the end user the option of either bruteforcing a solution for C (which, while obviously inefficient, seemed to work quick enough standalone where it was not noticeable) or using a direct setter method that is basically free, but just requires the end user to figure out the RNG constant ahead of time.
 ### Wouldn't Adjusting upwards not work well at higher chance values?
 That is true. Still going by the Stack Exchange link, the RNG constant for and expected value of 95% is 94.7%, as adjusting upwards by doubling the base chance when it's so high already is barely meaningful.  
@@ -86,7 +86,7 @@ Generally, this is not seen as that big of an issue, but in case you wish to pre
 See below.
 # Performance implications:
 All of this, generally, is **as free as you can get**, but to be thorough:   
-1)`initialize)`is not performance-friendly. During General usage, it should be unnoticeable, but if it becomes an issue, either optimize the way you create instances to spread the load out, or use `direct_initalize()`  
+1)`initialize()`is not performance-friendly. During General usage, it should be unnoticeable, but if it becomes an issue, either optimize the way you create instances to spread the load out, or use `direct_initalize()`  
 2) As the instance has to keep track of its state, it takes up a minor amount of RAM. here's a cute table:
 
 | idle blank project | Blank nodes x 10k | RNG instances x 10k |
@@ -132,5 +132,6 @@ streak = 11; negative streak = 3
 ```
 While, if you force a reverse implementation with `instance.direct_initailize(0.70, true)` the positive streaks get limited to 3 while the negative ones are kept unchecked. (while still being less likely than the basic implementation)  
 
+-------
 ##### made in godot 4.3 stable.
 ##### credit goes to QuantStats from Gaming Stack Exchange for writing the initial P_from_C method.
