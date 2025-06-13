@@ -12,7 +12,7 @@ adjusted on the fly after each roll, with the intention of making the randomness
 * Any other chance-based events that your players might feel frustrated by if they randomly happen too often or not often enough.
 
 ## Example issue:
-In DotA 2, the item used as an example is the Skull Basher, which is an item that Augemnts melee characters' auto attack (basic strike) with the ability to stun any hit enemy with a 25% chance.  
+In DotA 2, the item used as an example is the Skull Basher, which is an item that Augements melee characters' auto attack (basic strike) with the ability to stun any hit enemy with a 25% chance.  
 
 With Pure randomness, this leads to potentially frustrating situations for both the user player and the target player.  
 
